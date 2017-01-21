@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="savvyModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="results">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="mediumint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PCB_ID1" Type="varchar" MaxLength="13" />
+          <Property Name="MAC" Type="varchar" MaxLength="20" />
+          <Property Name="TEST_RESULT" Type="varchar" MaxLength="14" />
+          <Property Name="ISSUE" Type="varchar" MaxLength="20" />
+          <Property Name="RSSI" Type="tinyint" />
+          <Property Name="BATTERY_VOLTAGE" Type="smallint" />
+          <Property Name="PIN" Type="varchar" MaxLength="5" />
+          <Property Name="TIME_STAMP" Type="varchar" MaxLength="25" />
+          <Property Name="USER" Type="varchar" MaxLength="30" />
+          <Property Name="ECG_FIRMWARE" Type="varchar" MaxLength="40" />
+          <Property Name="PROGRAMMING_RESULT" Type="varchar" MaxLength="4" />
+          <Property Name="FUSE_BLOWN" Type="varchar" MaxLength="4" />
+          <Property Name="SUPERVISOR" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityContainer Name="savvyModelStoreContainer">
+          <EntitySet Name="results" EntityType="Self.results" Schema="savvy" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="savvyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PCB_ID1" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="MAC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TEST_RESULT" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="ISSUE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RSSI" Type="SByte" />
+          <Property Name="BATTERY_VOLTAGE" Type="Int16" />
+          <Property Name="PIN" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TIME_STAMP" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ECG_FIRMWARE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PROGRAMMING_RESULT" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="FUSE_BLOWN" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SUPERVISOR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="savvyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="results" EntityType="Self.result" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="savvyModelStoreContainer" CdmEntityContainer="savvyEntities">
+          <EntitySetMapping Name="results">
+            <EntityTypeMapping TypeName="savvyModel.result">
+              <MappingFragment StoreEntitySet="results">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="PCB_ID1" ColumnName="PCB_ID1" />
+                <ScalarProperty Name="MAC" ColumnName="MAC" />
+                <ScalarProperty Name="TEST_RESULT" ColumnName="TEST_RESULT" />
+                <ScalarProperty Name="ISSUE" ColumnName="ISSUE" />
+                <ScalarProperty Name="RSSI" ColumnName="RSSI" />
+                <ScalarProperty Name="BATTERY_VOLTAGE" ColumnName="BATTERY_VOLTAGE" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="TIME_STAMP" ColumnName="TIME_STAMP" />
+                <ScalarProperty Name="USER" ColumnName="USER" />
+                <ScalarProperty Name="ECG_FIRMWARE" ColumnName="ECG_FIRMWARE" />
+                <ScalarProperty Name="PROGRAMMING_RESULT" ColumnName="PROGRAMMING_RESULT" />
+                <ScalarProperty Name="FUSE_BLOWN" ColumnName="FUSE_BLOWN" />
+                <ScalarProperty Name="SUPERVISOR" ColumnName="SUPERVISOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
